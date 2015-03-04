@@ -1,5 +1,6 @@
 class ArticlesController < ApplicationController
   before_action :find_article, only:[:edit, :update, :destroy, :show]
+  before_action :authenticate_user!, except:[:show, :index]
 
   def show    
   end
