@@ -28,15 +28,19 @@ class ArticlesController < ApplicationController
   end
   
   def update
-    
+    if @article.update(article_params)
+      redirect_to @article
+    else
+      render 'edit'
+    end        
   end
   
-  def edit
-    
+  def edit    
   end
   
   def destroy
-    
+    @article = Article.destroy
+      redirect_to root_path
   end
   
   private
