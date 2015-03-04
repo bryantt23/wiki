@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-#   before_action :find only:[:edit, :update, :destroy, :create]
+  before_action :find_article, only:[:edit, :update, :destroy, :show]
 
   def show    
   end
@@ -34,8 +34,8 @@ class ArticlesController < ApplicationController
   
   private
   
-  def find
-    
+  def find_article
+    @article=Article.find(params[:id])
   end
   
   def article_params
